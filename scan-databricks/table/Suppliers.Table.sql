@@ -1,24 +1,16 @@
 
 CREATE TABLE Suppliers (
-    SupplierID INT NOT NULL, 
-    CompanyName STRING NOT NULL, 
-    ContactName STRING, 
-    ContactTitle STRING, 
-    Address STRING, 
-    City STRING, 
-    Region STRING, 
-    PostalCode STRING, 
-    Country STRING, 
-    Phone STRING, 
-    Fax STRING, 
-    HomePage STRING,
-    PRIMARY KEY (SupplierID)
-);
-
--- Adding the auto increment functionality since Databricks SQL doesn't support IDENTITY directly
-CREATE SEQUENCE SupplierID_seq START WITH 1 INCREMENT BY 1;
-
-CREATE OR REPLACE TRIGGER set_SupplierID
-BEFORE INSERT ON Suppliers 
-FOR EACH ROW 
-SET new.SupplierID = NEXT VALUE FOR SupplierID_seq;
+    SupplierID INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY, 
+    CompanyName STRING(40) NOT NULL, 
+    ContactName STRING(30) NULL, 
+    ContactTitle STRING(30) NULL, 
+    Address STRING(60) NULL, 
+    City STRING(15) NULL, 
+    Region STRING(15) NULL, 
+    PostalCode STRING(10) NULL, 
+    Country STRING(15) NULL, 
+    Phone STRING(24) NULL, 
+    Fax STRING(24) NULL, 
+    HomePage STRING NULL, 
+    CONSTRAINT PK_Suppliers PRIMARY KEY (SupplierID)
+)
