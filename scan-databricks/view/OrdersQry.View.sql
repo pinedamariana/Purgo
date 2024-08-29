@@ -1,4 +1,5 @@
-CREATE OR REPLACE VIEW `Orders_Qry` AS
+
+CREATE OR REPLACE VIEW `Orders Qry` AS
 SELECT 
     Orders.OrderID, 
     Orders.CustomerID, 
@@ -25,4 +26,4 @@ FROM
 INNER JOIN 
     Orders 
 ON 
-    Customers.CustomerID = Orders.CustomerID;
+    Customers.CustomerID = Orders.CustomerID
